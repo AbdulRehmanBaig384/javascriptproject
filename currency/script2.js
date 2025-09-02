@@ -1,13 +1,17 @@
 let form = document.querySelector("form");
+
 let resultValue = document.querySelector("#result-value");
+
 let countryOptions = document.querySelectorAll("select");
 
 countryOptions.forEach(selectOption => {
+    
     for (currCode in countryList) {
         let option = document.createElement("option");
         option.innerHTML = currCode;
         option.value = currCode;
         selectOption.append(option);
+        
         if (selectOption.id === "from-currency" && currCode === "CNY") {
             option.selected = "selected";
         } else if (selectOption.id === "to-currency" && currCode === "PKR") {
@@ -20,7 +24,7 @@ countryOptions.forEach(selectOption => {
 
 });
 
-// Function to update country flag based on selected currency.
+
 async function countryFlag(countryOption) {
     let countryCode = countryList[countryOption.value];
     let URL = `https://flagsapi.com/${countryCode}/flat/64.png`
@@ -72,4 +76,5 @@ async function fetchData(inputVal) {
         console.log("error", error);
 
     }
+
 }
