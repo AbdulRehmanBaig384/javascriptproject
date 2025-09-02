@@ -1,6 +1,9 @@
 let input_element=document.getElementById("todoinput");
+
 let input_addbutton=document.getElementById("btn");
+
 let input_tasklist=document.getElementById("tasklist");
+
 input_addbutton.addEventListener('click',()=>{
     const task_text=input_element.value.trim();
     if(task_text===''){
@@ -21,8 +24,10 @@ input_addbutton.addEventListener('click',()=>{
         listitem.remove();
     });
     listitem.appendChild(taskspan);
+    
     listitem.appendChild(delete_button);
 
     input_tasklist.appendChild(listitem);
     input_element.value='';
+
 })
