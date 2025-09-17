@@ -1,0 +1,461 @@
+ /* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 400% 400%;
+    animation: bgAnimation 20s ease infinite;
+    color: #f0f0f0;
+    overflow: hidden;
+}
+
+@keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#app {
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+canvas {
+    border: 4px solid #00ffcc;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 30px #00ffcc;
+    background-color: #000;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+canvas:hover {
+    box-shadow: 0 0 40px #00ffff, 0 0 10px #00ffff inset;
+    transform: scale(1.02);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #1e90ff, #00ffff);
+    color: #000;
+    box-shadow: 0 0 20px #00ffff;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: -100%;
+    left: -100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    animation: shine 3s infinite linear;
+    opacity: 0.4;
+}
+
+@keyframes shine {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100%, 100%);
+    }
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00ffff, #1e90ff);
+    transform: scale(1.08);
+    box-shadow: 0 0 30px #00ffff;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+} 
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    animation: moveWall 20s linear infinite;
+  }
+  
+  @keyframes moveWall {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200px 200px;
+    }
+  }
+  
+
+
+ */
+ */
+
+
+
+
+
+
+
+
+
+
+
+ /* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 600% 600%;
+    animation: bgAnimation 25s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    position: relative;
+}
+
+@keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.wall {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(rgba(0, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    animation: moveWall 40s linear infinite;
+}
+
+@keyframes moveWall {
+    0% { background-position: 0 0; }
+    100% { background-position: 300px 300px; }
+}
+
+#app {
+    position: relative;
+    z-index: 2;
+    padding: 60px 50px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 50px #00fff7, 0 0 100px #00fff7;
+    text-align: center;
+    animation: fadeZoom 1.5s ease-in-out;
+}
+
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00fff7;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px #00fff7, 0 0 35px #00fff7;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 15px #00fff7; }
+    50% { text-shadow: 0 0 35px #00fff7, 0 0 15px #00fff7; }
+    100% { text-shadow: 0 0 15px #00fff7; }
+}
+
+canvas {
+    border: 6px solid;
+    border-image: linear-gradient(45deg, #00f2fe, #4facfe) 1;
+    border-radius: 25px;
+    background-color: #000;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px #00ffff;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+canvas:hover {
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 0 50px #00ffff, 0 0 20px #00ffff inset;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 14px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: #00fff7;
+    border: 2px solid #00fff7;
+    box-shadow: 0 0 20px #00fff7;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: shinyEffect 6s linear infinite;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+@keyframes shinyEffect {
+    0% { transform: translate(0%, 0%); }
+    100% { transform: translate(100%, 100%); }
+}
+
+button:hover {
+    transform: scale(1.15);
+    background-color: rgba(0, 255, 255, 0.2);
+    color: #ffffff;
+    box-shadow: 0 0 30px #00ffff, 0 0 10px #00ffff inset;
+    border-color: #00ffff;
+}
+ */ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 400% 400%;
+    animation: bgAnimation 20s ease infinite;
+    color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+@keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#app {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.4);
+    transform: rotateX(10deg) rotateY(10deg);
+    animation: popUp 1s ease forwards;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes popUp {
+    0% { opacity: 0; transform: scale(0.8) rotateX(20deg); }
+    100% { opacity: 1; transform: scale(1) rotateX(10deg); }
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    animation: floatText 3s ease-in-out infinite;
+    margin-bottom: 25px;
+}
+
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+canvas {
+    border: 5px solid #00ffcc;
+    border-radius: 25px;
+    box-shadow: 0 0 25px #00ffcc;
+    margin-bottom: 30px;
+    background-color: #000;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+canvas:hover {
+    transform: scale(1.05) rotateZ(1deg);
+    box-shadow: 0 0 40px #00ffff, 0 0 15px #00ffff inset;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #1e90ff, #00ffff);
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 25px #00ffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: scale(1.1) rotate(-1deg);
+    box-shadow: 0 0 40px #00ffff, 0 0 20px #00ffff inset;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
+    animation: sparkle 5s linear infinite;
+}
+
+@keyframes sparkle {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(150%, 150%); }
+}
+
+.wall {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image:
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    animation: moveWall 20s linear infinite;
+}
+
+@keyframes moveWall {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+}  */
+
+
+
+
+
+
+
+

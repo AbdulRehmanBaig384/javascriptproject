@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maze Generator & Solver</title>
+  <link rel="stylesheet" href="hs.css" />
+</head>
+<body>
+  <header>
+    <h1>🧩 Maze Generator & Solver</h1>
+    <p>Build and solve a perfect maze using DFS!</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <button onclick="generateMaze()">🎲 Generate New Maze</button>
+      <button onclick="solveMaze()">🚀 Solve Maze</button>
+      <button onclick="resetMaze()">🔄 Reset</button>
+    </section>
+
+    <section class="canvas-container">
+      <canvas id="mazeCanvas" width="600" height="600"></canvas>
+    </section>
+
+    <section class="instructions">
+      <h2>Instructions</h2>
+      <ul>
+        <li>Click "Generate" to create a new maze</li>
+        <li>Click "Solve" to see the solution using DFS</li>
+        <li>Enjoy watching the pathfinding!</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Abdul Rehman | Powered by HTML, CSS, JS</p>
+  </footer>
+
+  <script src="hs.js"></script>
+</body>
+</html> 
+
+
+
+

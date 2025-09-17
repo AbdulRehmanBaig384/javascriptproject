@@ -1,0 +1,214 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Global Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out; /* Fade-in effect */
+  }
+  
+  /* Header Styles */
+  header {
+    padding: 30px 10px;
+    background-color: #111;
+    border-bottom: 2px solid #555;
+    animation: slideInFromTop 1s ease-out; /* Slide-in animation */
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #00ffd5;
+    text-shadow: 0 0 10px #00ffd5;
+    animation: glow 1.5s infinite alternate; /* Glowing effect */
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  /* Main Section Styles */
+  main {
+    padding: 30px 15px;
+  }
+  
+  .controls {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #00ffd5;
+    color: #000;
+    box-shadow: 0 0 15px #00ffd5, 0 0 30px #00ffd5 inset;
+    transition: all 0.3s ease;
+    animation: pulseButton 1s infinite alternate; /* Pulse effect */
+  }
+  
+  button:hover {
+    background: #00bfa6;
+    box-shadow: 0 0 25px #00ffd5, 0 0 35px #00ffd5 inset;
+    transform: scale(1.05);
+  }
+  
+  /* Canvas Container */
+  .canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  canvas {
+    border: 3px solid #00ffd5;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ffd5;
+    transition: transform 0.3s ease;
+  }
+  
+  canvas:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Instructions Section */
+  .instructions {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ffd5;
+    animation: slideInFromBottom 1s ease-out; /* Slide-in from bottom */
+  }
+  
+  .instructions h2 {
+    color: #00ffd5;
+    margin-bottom: 10px;
+  }
+  
+  .instructions ul {
+    padding-left: 20px;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background: #111;
+    padding: 15px;
+    border-top: 2px solid #555;
+    font-size: 14px;
+    color: #aaa;
+    animation: fadeIn 3s ease-in-out; /* Fade-in effect */
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #00ffd5;
+    }
+    100% {
+      text-shadow: 0 0 20px #00ffd5, 0 0 30px #00ffd5;
+    }
+  }
+  
+  @keyframes pulseButton {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

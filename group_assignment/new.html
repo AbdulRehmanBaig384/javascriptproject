@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Game</title>
+  <link rel="stylesheet" href="new.css">
+</head>
+<body>
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    Generating Maze...
+  </div>
+
+  <h2>Maze Game</h2>
+  <canvas id="mazeCanvas"></canvas>
+
+  <label for="player-color">Choose Player Color:</label>
+  <input type="color" id="player-color" name="player-color" value="#ff0000">
+
+  <audio id="background-music" loop>
+    <source src="your-audio-file.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id="movement-sound">
+    <source src="your-move-sound.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Set up Canvas and Player
+    const canvas = document.getElementById("mazeCanvas");
+    const ctx = canvas.getContext("2d");
+    let player;
+    const size = 40; // Grid size
+    const grid = [];
+    let stack = [];
+    canvas.width = 800;
+    canvas.height = 600;
+
+    // Play background music
+    const bgMusic = document.getElementById('background-music');
+    bgMusic.play(); 
+
+    const moveSound = document.getElementById('movement-sound');
+    document.addEventListener('keydown', () => {
+      moveSound.play(); // Play sound on move
+    });
+
+    // Maze Generation and Drawing Functions
+    class Cell {
+      constructor(i, j) {
+        this.i = i;
+        this.j = j;
+        this.visited = false;
+      }
+
+      highlight(color) {
+        ctx.fillStyle = color;
+        ctx.fillRect(this.j * size, this.i * size, size, size);
+      }
+
+      getUnvisitedNeighbors() {
+        const neighbors = [];
+        if (this.i > 0 && !grid[this.i - 1][this.j].visited) {
+          neighbors.push(grid[this.i - 1][this.j]);
+        }
+        if (this.i < grid.length - 1 && !grid[this.i + 1][this.j].visited) {
+          neighbors.push(grid[this.i + 1][this.j]);
+        }
+        if (this.j > 0 && !grid[this.i][this.j - 1].visited) {
+          neighbors.push(grid[this.i][this.j - 1]);
+        }
+        if (this.j < grid[0].length - 1 && !grid[this.i][this.j + 1].visited) {
+          neighbors.push(grid[this.i][this.j + 1]);
+        }
+        return neighbors;
+      }
+    }
+
+    function setupGrid() {
+      for (let i = 0; i < canvas.height / size; i++) {
+        let row = [];
+        for (let j = 0; j < canvas.width / size; j++) {
+          row.push(new Cell(i, j));
+        }
+        grid.push(row);
+      }
+    }
+
+    function drawGrid() {
+      for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+          if (grid[i][j].visited) {
+            grid[i][j].highlight("lightgreen");
+          } else {
+            grid[i][j].highlight("white");
+          }
+        }
+      }
+    }
+
+    function removeWalls(current, next) {
+      if (current.i < next.i) {
+        // Remove bottom wall
+        current.bottom = false;
+        next.top = false;
+      } else if (current.i > next.i) {
+        // Remove top wall
+        current.top = false;
+        next.bottom = false;
+      }
+      if (current.j < next.j) {
+        // Remove right wall
+        current.right = false;
+        next.left = false;
+      } else if (current.j > next.j) {
+        // Remove left wall
+        current.left = false;
+        next.right = false;
+      }
+    }
+
+    async function generateMaze() {
+      document.getElementById('loading-screen').style.display = 'flex'; // Show loading screen
+      setupGrid();
+      let current = grid[0];
+      current.visited = true;
+      stack = [];
+
+      while (true) {
+        drawGrid();
+        current.highlight("green");
+
+        let neighbors = current.getUnvisitedNeighbors();
+        if (neighbors.length > 0) {
+          let next = neighbors[Math.floor(Math.random() * neighbors.length)];
+          stack.push(current);
+          removeWalls(current, next);
+          current = next;
+          current.visited = true;
+        } else if (stack.length > 0) {
+          current = stack.pop();
+        } else {
+          break;
+        }
+
+        await new Promise(r => setTimeout(r, 50)); // Slow down the generation for better animation
+      }
+
+      player = grid[0];
+      drawGrid();
+      highlightGoal();
+      drawPlayer();
+      document.getElementById('loading-screen').style.display = 'none'; // Hide loading screen
+    }
+
+    function drawPlayer(color = "red") {
+      const x = player.j * size + size / 4;
+      const y = player.i * size + size / 4;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x + size / 4, y + size / 4, size / 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function highlightGoal() {
+      const goal = grid[grid.length - 1][grid[0].length - 1];
+      goal.highlight("yellow");
+    }
+
+    // Victory Animation
+    function winGame() {
+      setTimeout(() => {
+        alert("🎉 You reached the goal!");
+        document.body.style.animation = 'victoryAnimation 5s'; // Trigger victory animation
+      }, 100);
+    }
+
+    // Event listener for player movement
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "ArrowUp" && player.i > 0) player.i--;
+      else if (event.key === "ArrowDown" && player.i < grid.length - 1) player.i++;
+      else if (event.key === "ArrowLeft" && player.j > 0) player.j--;
+      else if (event.key === "ArrowRight" && player.j < grid[0].length - 1) player.j++;
+
+      drawGrid();
+      drawPlayer();
+      highlightGoal();
+
+      // Check if player has reached the goal
+      if (player === grid[grid.length - 1]) winGame();
+    });
+
+    // Call maze generation function on page load
+    window.onload = generateMaze;
+
+  </script>
+
+</body>
+</html>

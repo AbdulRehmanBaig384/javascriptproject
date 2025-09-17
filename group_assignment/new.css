@@ -1,0 +1,66 @@
+@keyframes backgroundMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  body {
+    background: linear-gradient(45deg, #6e7dff, #7fffd4);
+    background-size: 400% 400%;
+    animation: backgroundMove 10s ease infinite;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #mazeCanvas {
+    width: 100%;
+    height: 80vh;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid black;
+    display: block;
+  }
+  
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    z-index: 1000;
+    display: none;
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  input[type="color"] {
+    margin-top: 20px;
+    padding: 5px;
+  }
+  
+  @keyframes victoryAnimation {
+    0% { background-color: #ffef76; }
+    50% { background-color: #ffb3b3; }
+    100% { background-color: #ffef76; }
+  }
+  

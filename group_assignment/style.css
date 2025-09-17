@@ -1,0 +1,142 @@
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 600% 600%;
+    animation: bgAnimation 25s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    position: relative;
+}
+
+@keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.wall {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image:
+        linear-gradient(90deg, rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(rgba(0, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    animation: moveWall 40s linear infinite;
+}
+
+@keyframes moveWall {
+    0% { background-position: 0 0; }
+    100% { background-position: 300px 300px; }
+}
+
+#app {
+    position: relative;
+    z-index: 2;
+    padding: 60px 50px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 50px #00fff7, 0 0 100px #00fff7;
+    text-align: center;
+    animation: fadeZoom 1.5s ease-in-out;
+}
+
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00fff7;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px #00fff7, 0 0 35px #00fff7;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 15px #00fff7; }
+    50% { text-shadow: 0 0 35px #00fff7, 0 0 15px #00fff7; }
+    100% { text-shadow: 0 0 15px #00fff7; }
+}
+
+canvas {
+    border: 6px solid;
+    border-image: linear-gradient(45deg, #00f2fe, #4facfe) 1;
+    border-radius: 25px;
+    background-color: #000;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px #00ffff;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+canvas:hover {
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 0 50px #00ffff, 0 0 20px #00ffff inset;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 14px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: #00fff7;
+    border: 2px solid #00fff7;
+    box-shadow: 0 0 20px #00fff7;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: shinyEffect 6s linear infinite;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+@keyframes shinyEffect {
+    0% { transform: translate(0%, 0%); }
+    100% { transform: translate(100%, 100%); }
+}
+
+button:hover {
+    transform: scale(1.15);
+    background-color: rgba(0, 255, 255, 0.2);
+    color: #ffffff;
+    box-shadow: 0 0 30px #00ffff, 0 0 10px #00ffff inset;
+    border-color: #00ffff;
+}
+ 
+

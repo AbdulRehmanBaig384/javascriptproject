@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maze Generator & Solver</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    canvas {
+      border: 2px solid black;
+      display: block;
+      margin: 20px auto;
+    }
+    .controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+    <div id="app">
+        <h1> Maze Solver using DFS and BFS</h1>
+  <canvas id="mazeCanvas" width="600" height="600"></canvas>
+
+  <div class="controls">
+    <button onclick="generateMaze()">Generate Maze</button>
+    <button onclick="solveDFS()">Solve with DFS</button>
+    <button onclick="solveBFS()">Solve with BFS</button>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
