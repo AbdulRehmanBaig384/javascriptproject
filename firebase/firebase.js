@@ -5,10 +5,10 @@ const firebaseConfig = {
     apiKey: "Your FirebaseApi ",
     authDomain: "Yout AuthDomain",
     projectId: "Your Project-ID",
-    storageBucket: "login-370d9.appspot.com",
+    storageBucket: "Your Stoarage Bucket",
     messagingSenderId: "Your messagingsendderID",
     appId: "Your APP ID",
-    measurementId: "G-5GH62QD359"
+    measurementId: "Your MeasurementId"
 };
 
 // Initialize Firebase
@@ -18,6 +18,7 @@ const auth = getAuth(app);
 console.log(" Firebase Initialized");
 
 export { auth };
+
 
 
 
