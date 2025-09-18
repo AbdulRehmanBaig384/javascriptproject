@@ -7,7 +7,7 @@ const firebaseConfig = {
     authDomain: "Yout AuthDomain",
     projectId: "login-370d9",
     storageBucket: "login-370d9.appspot.com",
-    messagingSenderId: "670301249239",
+    messagingSenderId: "Your messagingsendderID",
     appId: "1:670301249239:web:5440e2a722a056a59a9a92",
     measurementId: "G-5GH62QD359"
 };
@@ -19,5 +19,6 @@ const auth = getAuth(app);
 console.log(" Firebase Initialized");
 
 export { auth };
+
 
 
