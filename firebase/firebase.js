@@ -11,13 +11,15 @@ const firebaseConfig = {
     measurementId: "Your MeasurementId"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 console.log(" Firebase Initialized");
 
 export { auth };
+
 
 
 
