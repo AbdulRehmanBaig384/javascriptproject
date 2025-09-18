@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// Your Firebase Configuration
 const firebaseConfig = {
     apiKey: "Your FirebaseApi ",
     authDomain: "Yout AuthDomain",
@@ -19,6 +18,7 @@ const auth = getAuth(app);
 console.log(" Firebase Initialized");
 
 export { auth };
+
 
 
 
