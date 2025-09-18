@@ -3,7 +3,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 
 // Your Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB6f62lKNpxmU1AtpDEpvU2fRBmmn28o2k",
+    apiKey: "Your FirebaseApi ",
     authDomain: "login-370d9.firebaseapp.com",
     projectId: "login-370d9",
     storageBucket: "login-370d9.appspot.com",
@@ -16,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-console.log("🔥 Firebase Initialized");
+console.log(" Firebase Initialized");
 
 export { auth };
+
