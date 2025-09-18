@@ -4,10 +4,10 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 const firebaseConfig = {
     apiKey: "Your FirebaseApi ",
     authDomain: "Yout AuthDomain",
-    projectId: "login-370d9",
+    projectId: "Your Project-ID",
     storageBucket: "login-370d9.appspot.com",
     messagingSenderId: "Your messagingsendderID",
-    appId: "1:670301249239:web:5440e2a722a056a59a9a92",
+    appId: "Your APP ID",
     measurementId: "G-5GH62QD359"
 };
 
@@ -18,6 +18,7 @@ const auth = getAuth(app);
 console.log(" Firebase Initialized");
 
 export { auth };
+
 
 
 
