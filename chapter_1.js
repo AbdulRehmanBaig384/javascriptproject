@@ -1,12 +1,17 @@
 // //Write a script to greet your visitors using js alert box
  function javascript_question1 (){
-alert("hello visitors");}
+  
+alert("hello visitors");
+ }
+
 javascript_question1();
 
 
  // question 2)write a script to display the following message in your broswer
 function javascript_question2(){
+ 
     alert("Error! Please enter a valid password");}
+
 javascript_question2();
 
 
@@ -71,4 +76,10 @@ input_addbutton.addEventListener('click',()=>{
     input_element.value='';
 
 })
+
+
+
+
+
+
 
