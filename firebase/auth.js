@@ -7,7 +7,7 @@ window.signUp = function () {
     const password = document.getElementById("signupPassword").value;
 
     if (email === "" || password === "") {
-        alert("❌ Please fill all fields");
+        alert(" Please fill all fields");
         return;
     }
 
@@ -42,3 +42,4 @@ window.login = function () {
             console.error(error);
         });
 };
+
