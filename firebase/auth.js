@@ -12,11 +12,11 @@ window.signUp = function () {
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            alert("✅ Successfully Signed Up!");
+            alert(" Successfully Signed Up");
             console.log("User:", userCredential.user);
         })
         .catch((error) => {
-            alert("❌ Signup Failed: " + error.message);
+            alert(" Signup Failed: " + error.message);
             console.error(error);
         });
 };
@@ -27,17 +27,17 @@ window.login = function () {
     const password = document.getElementById("loginPassword").value;
 
     if (email === "" || password === "") {
-        alert("❌ Please fill all fields");
+        alert(" Please fill all fields");
         return;
     }
 
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            alert("✅ Successfully Logged In!");
+            alert(" Successfully Logged In");
             console.log("User:", userCredential.user);
         })
         .catch((error) => {
-            alert("❌ Login Failed: " + error.message);
+            alert(" Login Failed: " + error.message);
             console.error(error);
         });
 };
