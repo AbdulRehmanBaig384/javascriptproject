@@ -8,6 +8,6 @@
 //         break;
 //     }  
 // }
-// if(match==false){
-//     document.write("City not found");
-// 
+if(match==false){
+    document.write("City not found");
+
