@@ -574,17 +574,20 @@ document.addEventListener("keydown", e => {
       player = grid[index(player.i - 1, player.j)];
       moved = true;
     }
-  } else if (e.key === "ArrowRight" || e.key === "d") {
+  } 
+  else if (e.key === "ArrowRight" || e.key === "d") {
     if (!player.walls[1]) {
       player = grid[index(player.i, player.j + 1)];
       moved = true;
     }
-  } else if (e.key === "ArrowDown" || e.key === "s") {
+  }
+  else if (e.key === "ArrowDown" || e.key === "s") {
     if (!player.walls[2]) {
       player = grid[index(player.i + 1, player.j)];
       moved = true;
     }
-  } else if (e.key === "ArrowLeft" || e.key === "a") {
+  }
+  else if (e.key === "ArrowLeft" || e.key === "a") {
     if (!player.walls[3]) {
       player = grid[index(player.i, player.j - 1)];
       moved = true;
