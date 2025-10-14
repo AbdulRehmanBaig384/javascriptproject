@@ -296,7 +296,7 @@
         drawPlayer();
 
         if (player === grid[grid.length - 1]) {
-          setTimeout(() => alert("🎉 You reached the goal!"), 100);
+          setTimeout(() => alert(" You reached the goal"), 100);
         }
       }
     });
