@@ -124,9 +124,11 @@
           removeWalls(current, next);
           current = next;
           current.visited = true;
-        } else if (stack.length > 0) {
+        } 
+        else if (stack.length > 0) {
           current = stack.pop();
-        } else {
+        }
+        else {
           break;
         }
 
