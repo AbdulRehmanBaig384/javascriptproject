@@ -390,7 +390,8 @@ function removeWalls(a, b) {
   if (x === 1) {
     a.walls[3] = false;
     b.walls[1] = false;
-  } else if (x === -1) {
+  } 
+  else if (x === -1) {
     a.walls[1] = false;
     b.walls[3] = false;
   }
