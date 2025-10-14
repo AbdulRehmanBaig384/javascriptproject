@@ -97,7 +97,8 @@
       if (y === 1) {
         a.walls[0] = false;
         b.walls[2] = false;
-      } else if (y === -1) {
+      }
+      else if (y === -1) {
         a.walls[2] = false;
         b.walls[0] = false;
       }
